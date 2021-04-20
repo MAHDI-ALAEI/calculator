@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHDI ALAEI :: Calculator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #c8d6e5;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        form {
+            width: 300px;
+            background-color: #222f3e;
+            border-radius: 10px;
+            display: grid;
+            grid-template: repeat(6, auto)/repeat(4, 1fr);
+            padding: 5px;
+        }
+
+        form>input {
+            padding: 10px 8px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            margin: 3px;
+            text-transform: uppercase;
+            height: 45px;
+            background-color: #576574;
+            color: white;
+            font-size: 20px;
+        }
+
+        input[type='text'] {
+            grid-area: 1/1/1/span 4;
+            background-color: #01a3a4;
+            height: 55px;
+            font-size: 22px;
+            text-align: right;
+            color: white;
+        }
+
+        input[type='button']:nth-last-of-type(1) {
+            grid-area: 6/3/6/span 2;
+            background-color: #2e86de;
+            color: white;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: 40px;
+            text-transform: uppercase;
+            color: #576574;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" name="calc">
+        <input type="text" name="display" value="" disabled>
+        <input type="button" value="ac" onclick="_ac()">
+        <input type="button" value="c" onclick="_c()">
+        <input type="button" value="%" onclick="_get(this.value)">
+        <input type="button" value="-" onclick="_get(this.value)">
+        <input type="button" value="9" onclick="_get(this.value)">
+        <input type="button" value="8" onclick="_get(this.value)">
+        <input type="button" value="7" onclick="_get(this.value)">
+        <input type="button" value="+" onclick="_get(this.value)">
+        <input type="button" value="6" onclick="_get(this.value)">
+        <input type="button" value="5" onclick="_get(this.value)">
+        <input type="button" value="4" onclick="_get(this.value)">
+        <input type="button" value="*" onclick="_get(this.value)">
+        <input type="button" value="3" onclick="_get(this.value)">
+        <input type="button" value="2" onclick="_get(this.value)">
+        <input type="button" value="1" onclick="_get(this.value)">
+        <input type="button" value="/" onclick="_get(this.value)">
+        <input type="button" value="0" onclick="_get(this.value)">
+        <input type="button" value="." onclick="_get(this.value)">
+        <input type="button" value="=" onclick="_equal()">
+
+    </form>
+
+    <h1>mahdi alaei</h1>
+
+    <script>
+
+        function _get(val) {
+            calc.display.value += val
+            let x = calc.display.value
+            console.log(x)
+
+        }
+        function _ac() {
+            calc.display.value = ''
+        }
+        function _c() {
+            calc.display.value = calc.display.value.slice(0, -1)
+        }
+        function _equal() {
+            calc.display.value = eval(calc.display.value)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
